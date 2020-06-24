@@ -1,0 +1,19 @@
+{
+  "name": "playwright-addons",
+  "version": "0.1.0",
+  "type": "module",
+  "exports": "./exports.js",
+  "description": "Add-ons for Playwright",
+  "main": "index.js",
+  "author": {
+    "name": "Niek van der Maas",
+    "email": "mail@niekvandermaas.nl",
+    "url": "https://github.com/Niek"
+  },
+  "license": "MIT",
+  "dependencies": {
+    "@cliqz/adblocker-playwright": "^1.16.0",
+    "cross-fetch": "^3.0.5",
+    "playwright": "^1.1.1"
+  }
+}
