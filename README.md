@@ -23,3 +23,6 @@ const { addons } = import('playwright-addons');
     await page.goto('https://bot.sannysoft.com/');
 })();
 ```
+
+#### Documentation
+For generated documentation, see [the API docs](/api.md).

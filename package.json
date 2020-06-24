@@ -4,7 +4,9 @@
   "type": "module",
   "exports": "./exports.js",
   "description": "Add-ons for Playwright",
-  "main": "index.js",
+  "scripts": {
+    "docs": "jsdoc2md -f '*/*' >| api.md"
+  },
   "author": {
     "name": "Niek van der Maas",
     "email": "mail@niekvandermaas.nl",
@@ -15,5 +17,8 @@
     "@cliqz/adblocker-playwright": "^1.16.0",
     "cross-fetch": "^3.0.5",
     "playwright": "^1.1.1"
+  },
+  "devDependencies": {
+    "jsdoc-to-markdown": "^6.0.1"
   }
 }

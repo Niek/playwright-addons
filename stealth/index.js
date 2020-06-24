@@ -1,4 +1,13 @@
-export default async function (br) {
+/**
+ * @module playwright-addons/stealth
+ */
+
+
+/**
+ * Enable the stealth add-on
+ * @param {Browser} br - the Browser object of Playwright
+ */
+ export default async function (br) {
     if (typeof br !== 'object' || !br.contexts) {
         console.error('Need to provide a Playwright Browser object');
     } else {
