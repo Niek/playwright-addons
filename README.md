@@ -9,8 +9,8 @@ npm i Niek/playwright-addons#master
 
 #### Example usage
 ```js
-import { chromium } from 'playwright';
-import * as addons from 'playwright-addons';
+const { chromium } = require('playwright');
+const { addons } = import('playwright-addons');
 
 (async () => {
     const browser = await chromium.launch({headless: false});
