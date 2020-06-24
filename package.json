@@ -5,7 +5,8 @@
   "exports": "./exports.js",
   "description": "Add-ons for Playwright",
   "scripts": {
-    "docs": "jsdoc2md -f '*/*' >| api.md"
+    "docs": "jsdoc2md -f '*/*' >| api.md",
+    "lint": "eslint '*/*'"
   },
   "author": {
     "name": "Niek van der Maas",
@@ -19,6 +20,7 @@
     "playwright": "^1.1.1"
   },
   "devDependencies": {
+    "eslint": "^7.3.1",
     "jsdoc-to-markdown": "^6.0.1"
   }
 }

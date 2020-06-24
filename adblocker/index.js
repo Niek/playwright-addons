@@ -16,12 +16,13 @@ export default async function (br, options = {}) {
     if (typeof br !== 'object' || !br.contexts) {
         console.error('Need to provide a Playwright Browser object');
     } else {
+        let bl;
         if (options.customList) {
-            const bl = await blocker.PlaywrightBlocker.fromLists(fetch, options.customList);
+            bl = await blocker.PlaywrightBlocker.fromLists(fetch, options.customList);
         } else if (options.blockTrackers) {
-            const bl = await blocker.PlaywrightBlocker.fromPrebuiltAdsAndTracking(fetch);
+            bl = await blocker.PlaywrightBlocker.fromPrebuiltAdsAndTracking(fetch);
         } else {
-            const bl = await blocker.PlaywrightBlocker.fromPrebuiltAdsOnly(fetch);
+            bl = await blocker.PlaywrightBlocker.fromPrebuiltAdsOnly(fetch);
         }
 
         br.contexts().forEach(c => {
