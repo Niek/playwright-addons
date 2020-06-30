@@ -9,11 +9,9 @@ npm i Niek/playwright-addons#master
 
 #### Example usage
 ```js
-const { chromium } = require('playwright');
-const { addons } = import('playwright-addons');
-
 (async () => {
-    const browser = await chromium.launch({headless: false});
+    const browser = await require('playwright').chromium.launch({headless: false}); // or: firefox, webkit
+    const addons = await import('playwright-addons');
     const page = await browser.newPage();
 
     await addons.adblocker(browser);
