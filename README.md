@@ -22,5 +22,15 @@ npm i Niek/playwright-addons#master
 })();
 ```
 
+#### Docker
+Sample usage in Docker (run the script `test.js`):
+```bash
+docker container run -it --rm --ipc=host --cap-add=SYS_ADMIN -u root -p 5900:5900 -v $(pwd):/src -w /src \
+  -e PLAYWRIGHT_BROWSERS_PATH=0 -e DEBIAN_FRONTEND=noninteractive -e X11VNC_CREATE_GEOM=1280x720x24 \
+  -e FD_PROG="(fluxbox &) && xterm -hold -maximized -e npx nodemon test.js" mcr.microsoft.com/playwright:bionic sh -c \
+  "apt-get install -qq -y x11vnc git fluxbox && su pwuser -c 'npm i nodemon Niek/playwright-addons#master && x11vnc -q -create -nopw -forever'"
+```
+You can then connect with a VNC client to localhost:5900. The process/browser will reload on any file changes.
+
 #### Documentation
 For generated documentation, see [the API docs](/api.md).
