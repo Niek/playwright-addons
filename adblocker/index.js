@@ -27,9 +27,8 @@ export default async function (br, options = {}) {
 
         br.contexts().forEach(c => {
             // Existing pages
-            for (let i = 0; i < c.pages().length; i++) {
-                bl.enableBlockingInPage(c.pages()[i]);
-            }
+            c.pages().forEach(p => bl.enableBlockingInPage(p));
+
             // New pages
             c.on('page', async p => {
                 await bl.enableBlockingInPage(p);
