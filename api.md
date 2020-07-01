@@ -19,7 +19,7 @@ Enable the ad blocker add-on
 
 | Param | Type | Default | Description |
 | --- | --- | --- | --- |
-| br | <code>Browser</code> |  | the Browser object of Playwright |
+| br | <code>Browser</code> |  | Playwright Browser or BrowserContext object |
 | [options] | <code>Object</code> | <code>{}</code> | optional options to pass |
 | [options.customList] | <code>string</code> |  | provide a custom block list URL instead of the standard one |
 | [options.blockTrackers] | <code>boolean</code> | <code>false</code> | block trackers in addition to ads |
@@ -36,5 +36,5 @@ Enable the stealth add-on
 
 | Param | Type | Description |
 | --- | --- | --- |
-| br | <code>Browser</code> | the Browser object of Playwright |
+| br | <code>Browser</code> | Playwright Browser or BrowserContext object |
 

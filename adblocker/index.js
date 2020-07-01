@@ -7,14 +7,14 @@ import fetch from 'cross-fetch';
 
 /**
  * Enable the ad blocker add-on
- * @param {Browser} br - the Browser object of Playwright
+ * @param {Browser} br - Playwright Browser or BrowserContext object
  * @param {Object} [options={}] - optional options to pass
  * @param {string} [options.customList] - provide a custom block list URL instead of the standard one
  * @param {boolean} [options.blockTrackers=false] - block trackers in addition to ads
  */
 export default async function (br, options = {}) {
-    if (typeof br !== 'object' || !br.contexts) {
-        console.error('Need to provide a Playwright Browser object');
+    if (typeof br !== 'object' || !(br.contexts || br.pages)) {
+        console.error('Need to provide a Playwright Browser or BrowserContext object');
     } else {
         let bl;
         if (options.customList) {
@@ -25,7 +25,9 @@ export default async function (br, options = {}) {
             bl = await blocker.PlaywrightBlocker.fromPrebuiltAdsOnly(fetch);
         }
 
-        br.contexts().forEach(c => {
+        let context = br.context ? br.context() : [br];
+
+        context.forEach(c => {
             // Existing pages
             c.pages().forEach(p => bl.enableBlockingInPage(p));
 
