@@ -8,7 +8,7 @@ import { dirname } from 'path';
  * Enable the stealth add-on
  * @param {Browser} br - the Browser object of Playwright
  */
- export default async function (br) {
+export default async function (br) {
     if (typeof br !== 'object' || !br.contexts) {
         console.error('Need to provide a Playwright Browser object');
     } else {
@@ -22,13 +22,17 @@ import { dirname } from 'path';
             const platform = userAgent.indexOf('Macintosh') !== -1 ? 'MacIntel' : (userAgent.indexOf('Windows') !== -1 ? 'Win32' : '');
             const userAgentMetadata = undefined; // TODO, see https://chromedevtools.github.io/devtools-protocol/tot/Emulation/#type-UserAgentMetadata
 
-            c.pages().forEach(async p =>
-                (await p.context().newCDPSession(p)).send('Emulation.setUserAgentOverride', { userAgent, acceptLanguage, platform, userAgentMetadata })
-            );
+            c.pages().forEach(async p => {
+                try {
+                    (await p.context().newCDPSession(p)).send('Emulation.setUserAgentOverride', { userAgent, acceptLanguage, platform, userAgentMetadata })
+                } catch (e) { }
+            });
 
-            c.on('page', async p =>
-                (await p.context().newCDPSession(p)).send('Emulation.setUserAgentOverride', { userAgent, acceptLanguage, platform, userAgentMetadata })
-            );
+            c.on('page', async p => {
+                try {
+                    (await p.context().newCDPSession(p)).send('Emulation.setUserAgentOverride', { userAgent, acceptLanguage, platform, userAgentMetadata })
+                } catch (e) { }
+            });
         });
 
         console.log('Stealth enabled');
