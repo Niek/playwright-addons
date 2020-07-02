@@ -13,7 +13,7 @@ export default async function (br) {
     if (typeof br !== 'object' || !(br.contexts || br.pages)) {
         console.error('Need to provide a Playwright Browser or BrowserContext object');
     } else {
-        let context = br.context ? br.context() : [br];
+        let context = br.contexts ? br.contexts() : [br];
 
         context.forEach(async c => {
             // Init evasions script on every page load

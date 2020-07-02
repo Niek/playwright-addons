@@ -25,7 +25,7 @@ export default async function (br, options = {}) {
             bl = await blocker.PlaywrightBlocker.fromPrebuiltAdsOnly(fetch);
         }
 
-        let context = br.context ? br.context() : [br];
+        let context = br.contexts ? br.contexts() : [br];
 
         context.forEach(c => {
             // Existing pages
