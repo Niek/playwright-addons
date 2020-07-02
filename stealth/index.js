@@ -15,7 +15,7 @@ export default async function (br) {
     } else {
         let context = br.contexts ? br.contexts() : [br];
 
-        context.forEach(async c => {
+        await context.forEach(async c => {
             // Init evasions script on every page load
             await c.addInitScript({ path: dirname(fileURLToPath(import.meta.url)) + '/evasions.js' });
 
@@ -27,7 +27,7 @@ export default async function (br) {
             const userAgentMetadata = undefined; // TODO, see https://chromedevtools.github.io/devtools-protocol/tot/Emulation/#type-UserAgentMetadata
 
             // Firefox - write to prefs
-            if (br.constructor.name === 'FFBrowser') {
+            if (br.constructor.name.indexOf('FFBrowser') === 0) {
                 let prefs = `
                 user_pref("general.appversion.override", "` + userAgent.replace('Mozilla/', '') + `");
                 user_pref("general.oscpu.override", "` + oscpu + `");
@@ -40,9 +40,11 @@ export default async function (br) {
                     user_pref("intl.accept_languages", "` + acceptLanguage + `");
                     `;
                 }
-                br._options.ownedServer._process.spawnargs.forEach(a => {
-                    if (a.indexOf('_firefoxdev_profile') !== -1) {
-                        appendFileSync(a + '/prefs.js', prefs);
+                let proc = (br._options.ownedServer ? br._options.ownedServer : br._browser._options.ownedServer)._process;
+                proc.spawnargs.forEach((a, k) => {
+                    if (a.indexOf('-profile') !== -1) {
+                        let dir = proc.spawnargs[k + 1];
+                        appendFileSync(dir + '/prefs.js', prefs);
                     }
                 });
             } else { // Chromium - use CDP to override
