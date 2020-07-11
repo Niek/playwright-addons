@@ -1,6 +1,13 @@
 // Delete webdriver
 delete Object.getPrototypeOf(navigator).webdriver;
 
+//Overwrite the `plugins` property
+Object.defineProperty(navigator, "plugins", {
+	get: function () {
+		return [1, 2, 3, 4, 5];
+	},
+});
+
 // Fake webGL vendor + renderer
 try {
     // Remove traces of our Proxy ;-)
