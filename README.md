@@ -1,4 +1,7 @@
 # Add-ons for Playwright
+<!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
+[![All Contributors](https://img.shields.io/badge/all_contributors-1-orange.svg?style=flat-square)](#contributors-)
+<!-- ALL-CONTRIBUTORS-BADGE:END -->
 
 This package contains add-ons for the excellent [Playwright](https://github.com/microsoft/playwright/) browser automation framework. This package is still in development, so no releases yet.
 
@@ -34,3 +37,21 @@ You can then connect with a VNC client to localhost:5900. The process/browser wi
 
 #### Documentation
 For generated documentation, see [the API docs](/api.md).
+## Contributors ✨
+
+Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/docs/en/emoji-key)):
+
+<!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
+<!-- prettier-ignore-start -->
+<!-- markdownlint-disable -->
+<table>
+  <tr>
+    <td align="center"><a href="https://github.com/Wapweb"><img src="https://avatars2.githubusercontent.com/u/8421581?v=4" width="100px;" alt=""/><br /><sub><b>Alexandr</b></sub></a><br /><a href="#ideas-Wapweb" title="Ideas, Planning, & Feedback">🤔</a> <a href="https://github.com/Niek/playwright-addons/commits?author=Wapweb" title="Code">💻</a></td>
+  </tr>
+</table>
+
+<!-- markdownlint-enable -->
+<!-- prettier-ignore-end -->
+<!-- ALL-CONTRIBUTORS-LIST:END -->
+
+This project follows the [all-contributors](https://github.com/all-contributors/all-contributors) specification. Contributions of any kind welcome!
