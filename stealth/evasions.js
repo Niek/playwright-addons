@@ -57,3 +57,12 @@ try {
 } catch (err) {
     console.warn(err)
 }
+
+// Fake hairline feature, see https://github.com/Niek/playwright-addons/issues/2
+const _osH = Object.getOwnPropertyDescriptor(HTMLElement.prototype, 'offsetHeight');
+Object.defineProperty(HTMLDivElement.prototype, 'offsetHeight', {
+    ..._osH,
+    get: function () {
+        return this.id === 'modernizr' ? 1 : _osH.get.apply(this);
+    }
+})
