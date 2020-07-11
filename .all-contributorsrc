@@ -1,0 +1,25 @@
+{
+  "files": [
+    "README.md"
+  ],
+  "imageSize": 100,
+  "commit": false,
+  "contributors": [
+    {
+      "login": "Wapweb",
+      "name": "Alexandr",
+      "avatar_url": "https://avatars2.githubusercontent.com/u/8421581?v=4",
+      "profile": "https://github.com/Wapweb",
+      "contributions": [
+        "ideas",
+        "code"
+      ]
+    }
+  ],
+  "contributorsPerLine": 7,
+  "projectName": "playwright-addons",
+  "projectOwner": "Niek",
+  "repoType": "github",
+  "repoHost": "https://github.com",
+  "skipCi": true
+}
