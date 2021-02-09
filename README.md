@@ -3,6 +3,12 @@
 [![All Contributors](https://img.shields.io/badge/all_contributors-2-orange.svg?style=flat-square)](#contributors-)
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
 
+## WARNING: Please use [playwright-extra](https://github.com/berstend/puppeteer-extra/pull/303#issuecomment-775277480) instead, this repo is now obsolete.
+
+---
+
+## Old info:
+
 This package contains add-ons for the excellent [Playwright](https://github.com/microsoft/playwright/) browser automation framework. This package is still in development, so no releases yet.
 
 #### Installation
